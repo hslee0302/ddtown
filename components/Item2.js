@@ -6,9 +6,9 @@ const R = require("ramda");
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const resurveUrl = (uri) => `https://ddpension.mstay.co.kr/${uri}`;
 
-const Item = ({ year, month, date, baseUrl }) => {
+const Item = ({ year, month, date }) => {
   const query = queryString.stringify({ year, month, date });
-  const { data, error } = useSWR(`${baseUrl}/getData?${query}`, fetcher);
+  const { data, error } = useSWR(`/api/data?${query}`, fetcher);
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;

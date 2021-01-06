@@ -5,7 +5,7 @@ import Box from "./Box";
 const R = require("rambda");
 const heads = ["일", "월", "화", "수", "목", "금", "토"];
 
-const Body = ({ days, baseUrl }) => {
+const Body = ({ days }) => {
   const splited = R.splitEvery(7, days);
   return (
     <>
@@ -27,15 +27,7 @@ const Body = ({ days, baseUrl }) => {
                   return <Box key={day} isBefore={true} date={date} />;
                 }
 
-                return (
-                  <Box
-                    key={day}
-                    year={year}
-                    month={month}
-                    date={date}
-                    baseUrl={baseUrl}
-                  />
-                );
+                return <Box key={day} year={year} month={month} date={date} />;
               })}
             </div>
           );
