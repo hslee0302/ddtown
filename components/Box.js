@@ -1,6 +1,6 @@
 import styles from "./Body.module.scss";
 import classNames from "classnames";
-import Item from "./Item";
+import Item from "./Item2";
 
 const Box = ({ isHead, headText, isBefore, year, month, date }) => {
   if (isHead) {
