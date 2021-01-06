@@ -1,0 +1,46 @@
+import styles from "./Body.module.scss";
+import classNames from "classnames";
+import Item from "./Item";
+
+const Box = ({ isHead, headText, isBefore, year, month, date }) => {
+  if (isHead) {
+    return (
+      <div
+        className={classNames({
+          [styles.box]: true,
+        })}
+      >
+        <span className={styles.text}>{headText}</span>
+      </div>
+    );
+  }
+
+  if (isBefore) {
+    return (
+      <div
+        className={classNames({
+          [styles.box]: true,
+          [styles.grayed]: true,
+        })}
+      >
+        <span className={styles.text}>{date}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={classNames({
+        [styles.box]: true,
+      })}
+    >
+      <div>
+        <span className={styles.text}>{date}</span>
+      </div>
+
+      <Item year={year} month={month} date={date} />
+    </div>
+  );
+};
+
+export default Box;
