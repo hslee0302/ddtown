@@ -6,7 +6,8 @@ const R = require("rambda");
 
 class Index extends React.Component {
   static async getInitialProps({ req }) {
-    const baseUrl = req ? `${req.protocol}://${req.headers.host}` : "";
+    const protocol = req.headers.referer.split("://")[0];
+    const baseUrl = req ? `${protocol}://${req.headers.host}` : "";
     const now = moment();
     const startTitle = now.format("YYYY-MM");
 
