@@ -5,7 +5,8 @@ import Head from "../components/Head";
 const R = require("rambda");
 
 class Index extends React.Component {
-  static async getInitialProps() {
+  static async getInitialProps({ req }) {
+    const baseUrl = req ? `${req.protocol}://${req.get("Host")}` : "";
     const now = moment();
     const startTitle = now.format("YYYY-MM");
 
@@ -29,15 +30,15 @@ class Index extends React.Component {
     ])(R.range(0, 30));
     const days = R.concat(beforeDays, viewDays);
 
-    return { startTitle, days };
+    return { startTitle, days, baseUrl };
   }
 
   render() {
-    const { startTitle, days } = this.props;
+    const { startTitle, days, baseUrl } = this.props;
     return (
       <div className="App">
         <Head title={startTitle} />
-        <Body days={days} />
+        <Body days={days} baseUrl={baseUrl} />
       </div>
     );
   }

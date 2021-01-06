@@ -2,7 +2,7 @@ import styles from "./Body.module.scss";
 import classNames from "classnames";
 import Item from "./Item2";
 
-const Box = ({ isHead, headText, isBefore, year, month, date }) => {
+const Box = ({ isHead, headText, isBefore, year, month, date, baseUrl }) => {
   if (isHead) {
     return (
       <div
@@ -38,7 +38,7 @@ const Box = ({ isHead, headText, isBefore, year, month, date }) => {
         <span className={styles.text}>{date}</span>
       </div>
 
-      <Item year={year} month={month} date={date} />
+      <Item year={year} month={month} date={date} baseUrl={baseUrl} />
     </div>
   );
 };
