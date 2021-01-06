@@ -1,5 +1,5 @@
 {
     "routes": [{
-        "src": "/getData", "dest": "getData.html"
+        "src": "/getData"
     }]
 }
