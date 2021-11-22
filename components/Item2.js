@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import styles from "./Body.module.scss";
-import queryString from "querystring";
+import queryString from "query-string";
 
 const R = require("ramda");
 const fetcher = (...args) => fetch(...args).then((res) => res.json());

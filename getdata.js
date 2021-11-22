@@ -21,7 +21,7 @@ const parse = async (url) => {
   const $ = cheerio.load(html, { decodeEntities: true });
   // const daybyd = $('td').filter(() => $(this).text().trim() === '데이바이D');
   const contents = $("body table tbody tr td table tbody tr td");
-  const roomTable = $(contents).children("table").get(6);
+  const roomTable = $(contents).children("table").get(8);
   const roomTable2 = $(roomTable)
     .children("tbody")
     .children("tr")
@@ -76,8 +76,7 @@ const parse = async (url) => {
 
 const getData = (year, month, date) => {
   const url = getUrl(year, month, date);
-  const result = parse(url);
-  return result;
+  return parse(url);
 };
 
 module.exports = {

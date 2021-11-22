@@ -1,3 +1,4 @@
+import React from 'react';
 import moment from "moment";
 import Body from "../components/Body";
 import Head from "../components/Head";
@@ -26,7 +27,7 @@ class Index extends React.Component {
     const viewDays = R.map((x) => [
       false,
       moment(now).add(x, "days").format("YYYY-MM-DD"),
-    ])(R.range(0, 30));
+    ])(R.range(0, 60));
     const days = R.concat(beforeDays, viewDays);
 
     return { startTitle, days };
